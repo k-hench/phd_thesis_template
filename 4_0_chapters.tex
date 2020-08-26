@@ -1,0 +1,55 @@
+% here live the intros to all the individual chapters
+% also, you can toggle the inclusion of the individual 
+% chapters (by commenting the \input{ch_c1.txt}) for a 
+% faster build of the document during preparation
+
+% use the brackets [] to use different formating in the text vs. the TOC 
+\chapter[This is the very very, oh sooo very long title of Chapter 1 --- it even needs line breaks]{\centering This is the very very, oh sooo very long\\ title of Chapter1 --- it even needs line breaks}
+\vfill
+
+\chapterauthor{\textbf{First Author}}{1}{,}{1.3}{,}
+\chapterauthor{Second Author}{2}{,}{0}{,}
+\chapterauthor{Third Author}{3}{, \smallskip}{0}{,}
+\chapterauthor{Fourth Author}{1}{\vspace*{-.5em}\\}{0}{}
+
+\noindent\begin{tabular}{L{.015\textwidth}L{.985\textwidth}}
+    1 & First Research Institute \\
+    2 & Second Research Institute \\
+    3 & Third Research Institute
+\end{tabular}
+
+\noindent\colorbox{clrt1!15}{\parbox{\textwidth}{
+This study was originally published in \textit{Name of the Journal}.
+Figures were re-drawn for this thesis but no additional changes were made.
+The re-print within this thesis is in agreement with \textit{Name of the Publisher} under license number \textit{XX}.
+
+\nociteat{ref1}
+\bibliographystyleat{apalikeK}
+\bibliographyat{library/chapters.bib}
+}}
+
+\noindent\input{4_ch_c1.tex}
+
+\chapter[Short title of Chapter 2]{\centering Short title of Chapter 2\\}
+
+\chapterauthor{\textbf{First Author}}{1}{,}{1.3}{,}
+\chapterauthor{Second Author}{2}{,}{0}{,}
+\chapterauthor{Third Author}{3}{, \smallskip}{0}{,}
+
+\noindent\begin{tabular}{L{.015\textwidth}L{.985\textwidth}}
+    1 & First Research Institute \\
+    2 & Second Research Institute \\
+    3 & Third Research Institute
+\end{tabular}
+
+\noindent\colorbox{clrt1!15}{\parbox{\textwidth}{
+This study was originally published in \textit{Name of the Journal}.
+Figures were re-drawn for this thesis but no additional changes were made.
+The re-print within this thesis is in agreement with \textit{Name of the Publisher} as the original publication is under Creative Commons CC BY license.
+
+\nocitebt{ref2}
+\bibliographystylebt{apalikeK}
+\bibliographybt{library/chapters.bib}
+}}
+
+\input{4_ch_c2.tex}

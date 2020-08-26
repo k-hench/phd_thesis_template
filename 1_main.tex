@@ -1,0 +1,138 @@
+\documentclass[12pt, openany]{book}
+%\documentclass[12pt,oneside]{book}
+\input{0_pre.tex}
+
+\def\MYTITLE{The Thesis Title}
+\def\MYAUTHOR{Author Name}
+\title{\MYTITLE}
+
+\begin{document}
+\thispagestyle{empty}
+%\AddToShipoutPicture*{\FrontPic}
+\newgeometry{top=2.5cm, bottom=2cm, inner=2.25cm, outer=1.75cm}
+%\newgeometry{top=2.5cm, bottom=2cm, inner=2cm, outer=2cm}
+\begin{center}
+\begin{LARGE}
+\vspace*{1.2em}
+\textbf{\thetitle}\\
+\vspace*{.1\paperheight}
+\MYAUTHOR
+\end{LARGE}
+\end{center}
+\vfill
+
+
+\blankpage
+
+\newpage
+\thispagestyle{empty}
+
+\newgeometry{top=2.5cm, bottom=2cm, inner=2.25cm, outer=1.75cm}
+
+\begin{center}
+\begin{LARGE}
+\vspace*{1.2em}
+\textbf{\thetitle}\\
+\end{LARGE}
+\vfill
+Dissertation
+zur Erlangung des akademischen Grades\\\vspace*{2em}
+\textit{Doctor rerum naturalium}\\\vspace*{2em}
+der Mathematisch-Naturwissenschaftlichen Fakultät\\
+der Christian-Albrechts-Universität zu Kiel\\\vspace*{2em}
+vorgelegt von\\
+\MYAUTHOR\\\vspace*{2em}
+Kiel, XX.XX.20XX
+\end{center}
+
+\blankpage
+\thispagestyle{empty}
+~\vfill
+
+\hfill\begin{tabular}{rl}
+    Erster Gutachter: & Prof. XX \\
+    Zweite Gutachterin: & Prof. XX \\
+    Tag der Disputation: & XX.XX.20XX\\
+    Zum Druck genehmigt: & XX.XX.20XX
+\end{tabular}{}
+
+\blankpage
+\newpage
+\renewcommand{\chaptername}{}
+\setcounter{page}{1}
+\tableofcontents
+
+\newpage
+\renewcommand{\chaptername}{}
+\renewcommand{\headchapter}{Summary}
+\input{2_summary.tex}
+
+\setcounter{chapter}{-1}
+\chapter[Introduction]{\centering Introduction\\}
+\renewcommand{\chaptername}{Chapter~}
+\renewcommand{\headchapter}{\thechapter}
+\input{3_intro.tex}
+
+\newpage
+\input{4_0_chapters.tex}
+
+\chapter[Synthesis]{\centering Synthesis\\}
+\renewcommand{\chaptername}{}
+\renewcommand{\headchapter}{Synthesis}
+\input{5_synthesis.tex}
+
+\newpage
+%\thispagestyle{fancy}
+\renewcommand{\chaptername}{}
+\mystyletwo
+\renewcommand{\headchapter}{Lists}
+{\Huge\normalfont\bfseries\textcolor{clrt1}{Appendix}}
+\addcontentsline{toc}{chapter}{Appendix}
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\addcontentsline{toc}{section}{List of Supplementary Figures}
+\listofsupplFigures
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\addcontentsline{toc}{section}{List of Supplementary Tables}
+\listofsupplTables
+
+\newpage
+\mystyleone
+\renewcommand{\headchapter}{Author Contributions}
+\input{6_contributions.tex}
+
+\newpage
+\renewcommand{\headchapter}{CV}
+\input{7_cv.tex}
+
+\newpage
+\renewcommand{\headchapter}{Acknowledgments}
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+\input{8_aknowledgements.tex}
+
+%\blankpage
+\newpage
+\renewcommand{\headchapter}{~}
+\section*{Eidesstattliche Erklärung}
+\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
+Hiermit bestätige ich, \MYAUTHOR, dass die folgende Dissertation\vspace{1em}
+
+\textit{\MYTITLE}\vspace{1em}
+
+von mir, unter Beratung meines Betreuers, selbstständig verfasst wurde, nach Inhalt und Form meine eigene Arbeit ist und keine weiteren Quellen und Hilfsmittel als die angegebenen verwendet wurden.
+
+\noindent{}Die vorliegende Arbeit ist unter Einhaltung der Regeln guter wissenschaftlicher Praxis der Deutschen Forschungsgemeinschaft entstanden und wurde nicht im Rahmen eines Prüfungsverfahrens an anderer Stelle vorgelegt.
+Veröffentlichte oder zur Veröffentlichung eingereichte Manuskripte wurden kenntlich gemacht.
+Mir wurde kein akadamischer Grad entzogen\\\vspace{.07\paperheight}
+
+\noindent{}XX, XX.XX.20XX\hfill{}\rule{.25\textwidth}{0.4pt}
+
+\hfill{}\MYAUTHOR\hspace*{.04\textwidth}\\
+
+%\blankpage
+\newpage
+\thispagestyle{empty}
+\ \\
+\end{document} 
