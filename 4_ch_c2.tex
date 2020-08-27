@@ -4,9 +4,7 @@ Here, we talk about different citation styles and look at tabels.
 
 \noindent{\bf Keywords:} Key1, key2, key3.
 
-\begin{multicols}{2}
-
-\begin{table*}[!htb]
+\begin{table*}[!ht]
 \centering
 \caption[Summary of Anderson's Iris Data]{\label{tab:c2t1}
 A small summary of Edgar Anderson's Iris Data as implemented in R.}
@@ -15,6 +13,7 @@ A small summary of Edgar Anderson's Iris Data as implemented in R.}
 \end{small}
 \end{table*}
 
+\begin{multicols}{2}
 \section{Introduction}
 
 So, as far as citations go, I use a modular command system: This is based on the basic \LaTeX - citation commands (\texttt{$\backslash$cite}, \texttt{$\backslash$citep} and \texttt{$\backslash$citealt}) and two single-letter suffixes (\texttt{i}/\texttt{a}/\texttt{b}/\texttt{c}/\texttt{d}/\texttt{z} and \texttt{t}/\texttt{m}). The first letter indicates the current section (Intro: \texttt{i}, Chapter 1:\texttt{a}, 2:\texttt{b}, Synthesis:\texttt{z}), while the last letter indicates whether this is the self-citation from the Chapter title page (\texttt{t}) or a citation within the manuscript (\texttt{m}).
@@ -28,7 +27,7 @@ The referencing of the tables happens using the commands \texttt{$\backslash$tab
 \section{Even More Dummy Content}
 \textcolor{black!35}{\lipsum[7-8]}
 
-\begin{supplTable*}[!t]
+\begin{supplTable*}[!b]
 \centering
 \captionsetup{width=.9\linewidth}
 \caption[Subset of Anderson's Iris Data]{\label{tab:c2st1}
