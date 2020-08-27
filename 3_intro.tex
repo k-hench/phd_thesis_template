@@ -12,6 +12,7 @@
 
 \section{First Section}
 
+\textbf{Adding Figures:}
 Figures are added to the text using the \texttt{figure*} environment in combination with the \texttt{$\backslash$includegraphics} command (s. example in source code).
 You can also use the \texttt{$\backslash$label} command to add a tag to the figure which you can use to refernce the figure in your text.
 Note that figures will show up somewhere \textit{after} the paragraph that follows the \textsw{figure*} environment. If you need to force the appearance on a specific page you can use the command \texttt{$\backslash$FloatBarrier}.
@@ -19,32 +20,31 @@ Note that figures will show up somewhere \textit{after} the paragraph that follo
 Here is some demonstration how to reference a Figure (using the label from the figure command) --- just look at these birds (\figref{fig:cif1}).
 The reference is done using the command \texttt{$\backslash$figref\{\}}.
 
-For figures in \textit{landscape mode}, use the \texttt{landscape} environment.
-I usually do this in the following manner:\vspace*{-.5em}
+\textbf{Landscape Figures:} For figures in \textit{landscape mode}, use the \texttt{landscape} environment.
+I usually do this in the following manner:
 
-\coderule\vspace*{-.8em}
+\begin{tcolorbox}[arc=0pt,outer arc=0pt,breakable,colback=black!05,colframe=black!10,pad at break=2mm,boxrule=0.1pt]
 \begin{lstlisting}
 \begin{|\cc{landscape}|}
- \begin{|\dd{figure}|}[!ht]
-  \centering
-  \includegraphics{path/figure}
-  \caption[LOF-title]{
-   \label{fig:lab}
-   \textbf{Caption Title.}
-   Caption....
-   }
- \end{|\dd{figure}|}
+\begin{|\dd{figure}|}[!ht]
+ \centering
+ \includegraphics{path/figure}
+ \caption[LOF-title]{
+  \label{fig:lab}
+  \textbf{Caption Title.}
+  Caption ...
+  }
+\end{|\dd{figure}|}
 \end{|\cc{landscape}|}
 \end{lstlisting}
-\vspace*{-1.8em}
-\coderule
+\end{tcolorbox}
 
 Also, note the difference between normal mode (\texttt{figure*}) and landscape mode (\texttt{figure}):
 All \texttt{Float}-environments (\texttt{figure}, \texttt{supplFigure}, \texttt{table} and \texttt{supplTable}) that you want to place within a \texttt{multicols} text, need to have an asterisk at the appended.
 
-To embed a landscape figure within the text, the overall approach is:\vspace*{-.5em}
+To embed a landscape figure within the text, the overall approach is:
 
-\coderule\vspace*{-.8em}
+\begin{tcolorbox}[arc=0pt,outer arc=0pt,breakable,colback=black!05,colframe=black!10,pad at break=2mm,boxrule=0.1pt]
 \begin{lstlisting}
 |\textnormal{\textcolor{black!35}{this long sentence of running text is not}}|
 \stopsquarepar
@@ -53,13 +53,15 @@ To embed a landscape figure within the text, the overall approach is:\vspace*{-.
 \begin{|\cc{landscape}|}
  ...
 \end{|\cc{landscape}|}
-\begin{|\dd{multicols*}|}{2}
-|\textnormal{\textcolor{black!35}{finished yet, but wraps around the figure}}|
+\begin{|\dd{multicols}|}{2}
+|\textnormal{\textcolor{black!35}{finished yet, but wraps around ...}}|
 \end{lstlisting}
-\vspace*{-1.8em}
-\coderule
+\end{tcolorbox}
 
-By the way, we can also quote \textit{in line}:
+Unfortunately, breaking the text around landscape figures needs to be done manually - finding the best break is usually done last because any change in the text afterwards might result in awkward half-empty pages.
+Also, note the \texttt{$\backslash$stopsquarepar} which is used to cause the text-justification to behave as if the the text was not broken (keeping eg. the block-justification intact).
+
+\textbf{Inline Quotes:} By the way, we can also quote \textit{in line} using the environment \texttt{$\backslash$displayquote}:
 
 \begin{displayquote}
 \textit{
@@ -67,13 +69,11 @@ I look at the term species, as one arbitrarily given for the sake of convenience
 \hfill{\citepim{Darwin1859}}
 \end{displayquote}
 
+\section{Second Section}
+
 The rest is just dummy text....
 
 \lipsum[1]
-
-\section{Second Section}
-
-\lipsum[3]
 
 \begin{tcolorbox}[arc=0pt,outer arc=0pt,breakable,title = Summary,
 colback=clrt2!30,colframe=clrt2,pad at break=3mm,boxrule=1pt]
