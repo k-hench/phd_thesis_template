@@ -61,6 +61,8 @@ keepaspectratio]{#1}%
 %\definecolor{clrt1}{RGB}{80, 80, 80}    % gray 1
 %\definecolor{clrt2}{RGB}{180, 180, 180}  % gray 2
 
+%\newcommand{\code1}[1]{\textcolor{clrt1}{#1}}
+
 \usepackage{tocloft}
 \renewcommand{\cftchapfont}{\color{clrt1}}
 \renewcommand{\cftsecfont}{\color{clrt2}}
@@ -140,11 +142,14 @@ keepaspectratio]{#1}%
 
 % citation management -----------
 \newcommand{\cc}[1]{\textcolor{clrt2!80}{#1}}
+\newcommand{\dd}[1]{\textcolor{clrt1!80}{#1}}
 \newcommand{\gitref}{\hyperlink{git}{git}}
 \newcommand{\textsw}[1]{\textcolor{darkgray}{\textsc{#1}}}
+% defining the comand \mean to draw a bar over a math expression to indicate the mean
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 \newcommand*\mean[1]{\overbar{#1}}
 
+% setting up link colors
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
@@ -156,7 +161,7 @@ keepaspectratio]{#1}%
 % inline citations
 \usepackage{csquotes}
 \makeatletter
-%Take the original environment definition and change the leftmargin to 1cm
+%Take the original environment definition and change the left margin
 \renewenvironment*{displayquote}
   {\begingroup\setlength{\leftmargini}{1.3em}\csq@getcargs{\csq@bdquote{}{}}}
   {\csq@edquote\endgroup}
@@ -287,3 +292,12 @@ keepaspectratio]{#1}%
     \clearpage\thispagestyle{empty}\mbox{}\clearpage
 %    \addtocounter{page}{-1}%
     \newpage}
+    
+% manual code highlighting
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  escapeinside=||
+}
+
+\newcommand{\coderule}{\textcolor{black!35}{\hfil\rule{.98\linewidth}{0.2pt}}}

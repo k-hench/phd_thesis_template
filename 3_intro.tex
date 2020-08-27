@@ -1,10 +1,8 @@
 % add your introduction section here ...
-``\textit{This includes an example of an opening quote, the inclusion and reference to a Figure and a (chapter-specific) citation.}''\\
+``\textit{This includes examples of quotes, the inclusion and reference to a Figure, a (chapter-specific) citation and a summary box.}''\\
 \hspace*{.83\textwidth}{\citepim{Darwin1859}} %note the section-specific citation commands (indication section and within text (i/a/b/c/z), and self reference from the chapter title (p/m))
 
 \begin{multicols}{2}
-\section{First Section}
-
 \begin{figure*}[!hb] % figure will be placed after the next paragraph finishes
 \centering
 \includegraphics[width = \fwidth]{figures/ci/finches.png}
@@ -12,15 +10,81 @@
 }
 \end{figure*}
 
+\section{First Section}
+
+Figures are added to the text using the \texttt{figure*} environment in combination with the \texttt{$\backslash$includegraphics} command (s. example in source code).
+You can also use the \texttt{$\backslash$label} command to add a tag to the figure which you can use to refernce the figure in your text.
+Note that figures will show up somewhere \textit{after} the paragraph that follows the \textsw{figure*} environment. If you need to force the appearance on a specific page you can use the command \texttt{$\backslash$FloatBarrier}.
+
 Here is some demonstration how to reference a Figure (using the label from the figure command) --- just look at these birds (\figref{fig:cif1}).
-The reference is done using the command \textsw{$\backslash figref\{\}$}.
+The reference is done using the command \texttt{$\backslash$figref\{\}}.
+
+For figures in \textit{landscape mode}, use the \texttt{landscape} environment.
+I usually do this in the following manner:\vspace*{-.5em}
+
+\coderule\vspace*{-.8em}
+\begin{lstlisting}
+\begin{|\cc{landscape}|}
+ \begin{|\dd{figure}|}[!ht]
+  \centering
+  \includegraphics{path/figure}
+  \caption[LOF-title]{
+   \label{fig:lab}
+   \textbf{Caption Title.}
+   Caption....
+   }
+ \end{|\dd{figure}|}
+\end{|\cc{landscape}|}
+\end{lstlisting}
+\vspace*{-1.8em}
+\coderule
+
+Also, note the difference between normal mode (\texttt{figure*}) and landscape mode (\texttt{figure}):
+All \texttt{Float}-environments (\texttt{figure}, \texttt{supplFigure}, \texttt{table} and \texttt{supplTable}) that you want to place within a \texttt{multicols} text, need to have an asterisk at the appended.
+
+To embed a landscape figure within the text, the overall approach is:\vspace*{-.5em}
+
+\coderule\vspace*{-.8em}
+\begin{lstlisting}
+|\textnormal{\textcolor{black!35}{this long sentence of running text is not}}|
+\stopsquarepar
+\end{|\dd{multicols}|}
+
+\begin{|\cc{landscape}|}
+ ...
+\end{|\cc{landscape}|}
+\begin{|\dd{multicols*}|}{2}
+|\textnormal{\textcolor{black!35}{finished yet, but wraps around the figure}}|
+\end{lstlisting}
+\vspace*{-1.8em}
+\coderule
+
+By the way, we can also quote \textit{in line}:
+
+\begin{displayquote}
+\textit{
+I look at the term species, as one arbitrarily given for the sake of convenience to a set of individuals closely resembling each other [...].}
+\hfill{\citepim{Darwin1859}}
+\end{displayquote}
+
 The rest is just dummy text....
 
-\lipsum[1-4]
+\lipsum[1]
 
 \section{Second Section}
 
-\lipsum[5-6]
+\lipsum[3]
+
+\begin{tcolorbox}[arc=0pt,outer arc=0pt,breakable,title = Summary,
+colback=clrt2!30,colframe=clrt2,pad at break=3mm,boxrule=1pt]
+   \begin{itemize}[leftmargin=1em]
+   %\setlength{\itemindent}{-1em}
+   \setlength{\itemsep}{0em}
+    \item{Quotes can either come as \textit{opening} or \textit{inline} quotes.}
+    \item{The reference to figures happens via the command \textsw{$\backslash figref\{\}$}.}
+    \item{Summary boxes can be added using the \textsw{tcolorbox} environment.}
+\end{itemize}
+\end{tcolorbox}
 
 \bibliographystyleim{apalikeK}
 \bibliographyim{library/ci.bib}
