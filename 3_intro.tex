@@ -54,7 +54,11 @@ To embed a landscape figure within the text, the overall approach is:
 
 \begin{tcolorbox}[arc=0pt,outer arc=0pt,breakable,colback=black!05,colframe=black!10,pad at break=2mm,boxrule=0.1pt]
 \begin{lstlisting}
-|\textnormal{\textcolor{black!35}{this long sentence of running text is not}}|
+|\textnormal{\textcolor{black!35}{text from previous paragraph.}}|
+
+\startsquarepar
+|\textnormal{\textcolor{black!35}{Start of a new paragraph and this long}}|
+|\textnormal{\textcolor{black!35}{sentence of running text is not}}|
 \stopsquarepar
 \end{|\dd{multicols}|}
 
@@ -67,13 +71,11 @@ To embed a landscape figure within the text, the overall approach is:
 \end{tcolorbox}
 
 Unfortunately, breaking the text around landscape figures needs to be done manually --- finding the best break is usually done last because any change in the text afterwards might result in awkward half-empty pages.
-Also, note the \texttt{$\backslash$stopsquarepar}, which is used to cause the text-justification to behave as if the the text was not broken (keeping eg. the block-justification intact).
+Also, note the \texttt{$\backslash$startsquarepar} and \texttt{$\backslash$stopsquarepar}, which wrap part of the broken paragraph that is preceding the landscape figure.
+These commands are used to cause the text-justification to behave as if the the text was not broken (keeping eg. the block-justification intact).
 
-\section{Second Section}
-
-The rest is just dummy text....
-
-\lipsum[1]
+\section{Second (Dummy) Section}
+\textcolor{black!35}{\lipsum[1]}
 
 \begin{tcolorbox}[arc=0pt,outer arc=0pt,breakable,title = Summary,
 colback=clrt2!30,colframe=clrt2,pad at break=3mm,boxrule=1pt]

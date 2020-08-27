@@ -15,36 +15,18 @@
 
 % ---- watermark
 \usepackage{eso-pic}
-\newcommand\FrontPic{%
-\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vspace*{.3\paperheight}
-\flushleft
-\includegraphics[height=.7\paperheight,%
-keepaspectratio]{img/front.png}%
-\vfill
+% adding a full-page image to the page background 
+\newcommand\PagePic[1]{%
+	\put(0,0){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			%\vspace*{.3\paperheight}
+			\flushleft
+			\includegraphics[height=\paperheight,%
+			keepaspectratio]{#1}%
+			\vfill
 }}}
 
-\newcommand\BackPic{%
-\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vspace*{.3\paperheight}
-\flushright
-\includegraphics[height=.7\paperheight,%
-keepaspectratio]{img/back.png}%
-\vfill
-}}}
-
-\newcommand{\NewPic}[1]{
-\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vspace*{.22\paperheight}
-\flushright
-\includegraphics[width=1\paperwidth,%
-keepaspectratio]{#1}%
-\vfill
-}}}
-
+% adding a part-page image to the page background (full width, with variable y-position)
 \newcommand{\NewPicHeight}[2]{
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
@@ -55,14 +37,14 @@ keepaspectratio]{#1}%
 \vfill
 }}}
 
+% setting the main color scheme (two complementary accent colors)
 \usepackage{xcolor}%,sectsty}
 \definecolor{clrt1}{RGB}{215, 95, 95}    % color 1
 \definecolor{clrt2}{RGB}{135, 175, 135}  % color 2
 %\definecolor{clrt1}{RGB}{80, 80, 80}    % gray 1
 %\definecolor{clrt2}{RGB}{180, 180, 180}  % gray 2
 
-%\newcommand{\code1}[1]{\textcolor{clrt1}{#1}}
-
+% formation of chapter title and Chapter entry in the TOC (adding Authors)
 \usepackage{tocloft}
 \renewcommand{\cftchapfont}{\color{clrt1}}
 \renewcommand{\cftsecfont}{\color{clrt2}}
@@ -71,23 +53,19 @@ keepaspectratio]{#1}%
 \WithSuffix\newcommand\chapterauthor*[1]{\printchapterauthor{#1}{}{}}
 
 \makeatletter
-\newcommand{\printchapterauthor}[3]{%
-  {%\vspace*{-25pt}%
-  %\linespread{1.5}
-  \large#1$^{~\small\textnormal#2}$#3%
-  %\par\nobreak\vspace*{30pt}
-  }
-  \@afterheading%
+\newcommand{\printchapterauthor}[3]{
+  {\large#1$^{~\small\textnormal#2}$#3}
+  \@afterheading
 }
 
-\newcommand{\authortoc}[3]{%
-  \addtocontents{toc}{\hspace{#2em}}%\vskip-10pt}%
+\newcommand{\authortoc}[3]{
+  \addtocontents{toc}{\hspace{#2em}}
   \addtocontents{toc}{
     {\protect\scriptsize\textcolor{black}{#1#3}}{}{}
     }
-  %\addtocontents{toc}{\vskip5pt}%
 }
 
+% setting the main font of the doument (any ttf- or otf-font)
 \setmainfont{Charter}[
   Path=./fnt-charter/,
   Extension=.ttf,
@@ -98,23 +76,26 @@ keepaspectratio]{#1}%
 ]
 
 \usepackage{titling}
-
 % paragraph formating -----------
 \setlength\fboxsep{.6em}
 \setlength{\parskip}{.8em} % vertical spcae
 \setlength{\parindent}{0em} % vertical spcae
 \renewcommand{\baselinestretch}{1.2} 
 
-\newcommand{\headchapter}{}
 
+% setting the header and footer of the document
+\newcommand{\headchapter}{} % create \headchapter as variable to overwrite in special chapters (intro/ synthesis) 
 \usepackage{fancyhdr}
  \setlength{\headheight}{15pt} 
 \pagestyle{fancy}
 \fancyhf{}
-%\rhead{\chaptername \headchapter}
+% standard header and footer (two-sided document)
 \fancyhead[RO, LE] {\chaptername \headchapter}
 \cfoot{--~\thepage~--}
+% equivalent header and footer (single-sided document)
+% \rhead{\chaptername \headchapter}
 
+% style one and two are used to toggle the header in the Lists of Figures section 
 \newcommand\mystyleone{%
 \fancyhf{}
 %\rhead{\chaptername \headchapter}
@@ -126,11 +107,19 @@ keepaspectratio]{#1}%
    \cfoot{--~\thepage~--}
 }
 
+% footer for chapter - starting pages
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}
+  \cfoot{--~\thepage~--}
+}
 
-%title formatin (margins)
+
+% title formatting (margins)
 \titlespacing\chapter{0pt}{0em plus 4pt minus 2pt}{1em plus 2pt minus 2pt}
 \titleformat{\chapter}{\Huge\normalfont\bfseries\color{clrt1}}{}{0em}{\hfil{--\hspace*{.25em}\thechapter\hspace*{.25em}-- }\\}
 \titleformat{\section}{\large\bfseries\color{clrt2}}{\thesection.}{0.5em}{}
+
 % table formats  -----------
 \usepackage{multirow}
 \usepackage{multicol}
@@ -145,6 +134,7 @@ keepaspectratio]{#1}%
 \newcommand{\dd}[1]{\textcolor{clrt1!80}{#1}}
 \newcommand{\gitref}{\hyperlink{git}{git}}
 \newcommand{\textsw}[1]{\textcolor{darkgray}{\textsc{#1}}}
+
 % defining the comand \mean to draw a bar over a math expression to indicate the mean
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 \newcommand*\mean[1]{\overbar{#1}}
@@ -170,22 +160,21 @@ keepaspectratio]{#1}%
 \usepackage{bibentry}
 \usepackage{natbib}  %set citing format
 \bibliographystyle{apalike}
-%\makeatletter 
-%\renewcommand\@biblabel[1]{#1.} 
-%\makeatother
+
+% setting References Chapter names
 \usepackage{multibib}
 \newcites{at}{\normalsize\textcolor{black}{Original publication}}
 \newcites{am}{Chapter 1 References}
-
+%
 \newcites{bt}{\normalsize\textcolor{black}{Original publication}}
 \newcites{bm}{Chapter 2 References}
-
+%
 \newcites{ct}{\normalsize\textcolor{black}{Original publication}}
 \newcites{cm}{Chapter 3 References}
-
+%
 \newcites{dt}{\normalsize\textcolor{black}{Original publication}}
 \newcites{dm}{Chapter 4 References}
-
+%
 \newcites{im}{Intro References}
 \newcites{zm}{Synthesis References}
 
@@ -225,21 +214,26 @@ keepaspectratio]{#1}%
 \makeatother
 
 % figure/table management -----------
+% floatrow for captions on the side of figures (narrow mode)
 \usepackage{floatrow}
 \usepackage[figurename=Figure,tablename=Table,labelfont=bf,format=plain, font=footnotesize]{caption} 
 \captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=colon}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
 \floatsetup[table]{capposition=top}
 
+% manage counter of supplementary figures and tables 
 \newcounter{figS}
 \newcommand{\figS}[1]{\refstepcounter{figS}\label{#1}}
 \newcounter{tabS}
 \newcommand{\tabS}[1]{\refstepcounter{tabS}\label{#1}}
 
+% format convenience reference funtions for figures and tables
 \newcommand{\figref}[1]{\hyperref[#1]{Figure~\ref{#1}}}
 \newcommand{\tabref}[1]{\hyperref[#1]{Table~\ref{#1}}}
 \newcommand{\figrefS}[1]{\hyperref[#1]{Suppl. Fig.~\ref{#1}}}
 \newcommand{\tabrefS}[1]{\hyperref[#1]{Suppl. Tab.~\ref{#1}}}
 
+% declare supplementary figure and table floats
 \usepackage{placeins}
 \DeclareFloatingEnvironment[
   fileext=losf,
@@ -253,7 +247,7 @@ keepaspectratio]{#1}%
   name=Suppl.~Table
 ]{supplTable}
 
-
+% setting convenience lengths to use for figure width/height
 \newlength{\fwidth}
 \setlength{\fwidth}{168.36mm}%{183mm}
 \newlength{\fheight}
@@ -262,17 +256,14 @@ keepaspectratio]{#1}%
 \titlespacing*{\chapter}{0pt}{-50pt}{40pt}
 
 \usepackage{morewrites}
-%take out later
+% package for colors in tables (with two shades of gray)
 \usepackage{colortbl}
 \definecolor{annoGRAY}{RGB}{240,240,240}
 \definecolor{annoDGRAY}{RGB}{200,200,200}
-\newcommand{\gene}[1]{\textit{\MakeLowercase{#1}}}
 
-%\renewcommand{\cftloftitlefont} {\MakeUppercase{\large\bfseries}}
-%\renewcommand{\cftlottitlefont} {\MakeUppercase{\large\bfseries}}
+% the "Chapter Title" of the List of Figures/Tables etc
 \renewcommand{\listfigurename}{\textcolor{clrt2}{\large\textbf{List of Figures}}}
 \renewcommand{\listsupplFigurename}{\textcolor{clrt2}{\large\textbf{List of Supplementary Figures}}}
-
 \renewcommand{\listtablename}{\textcolor{clrt2}{\large\textbf{List of Tables}}}
 \renewcommand{\listsupplTablename}{\textcolor{clrt2}{\large\textbf{List of Supplementary Tables}}}
 
@@ -281,16 +272,14 @@ keepaspectratio]{#1}%
     \par\begingroup \parfillskip 0pt \relax}
 \newcommand{\stopsquarepar}{%
     \par\endgroup}
-    
-\usepackage[most]{tcolorbox}
 
-\newcommand{\projanticase}[1]{\MakeUppercase{#1}}
-\newcommand{\projcase}[1]{\MakeLowercase{#1}}
+% use package tcolorbox for colored summary boxes
+\usepackage[most]{tcolorbox}
 \usepackage{amssymb}
 
-\newcommand\blankpage{%
+% custom command for blank pages
+\newcommand\blankpage{
     \clearpage\thispagestyle{empty}\mbox{}\clearpage
-%    \addtocounter{page}{-1}%
     \newpage}
     
 % manual code highlighting
@@ -299,5 +288,3 @@ keepaspectratio]{#1}%
   basicstyle=\ttfamily,
   escapeinside=||
 }
-
-\newcommand{\coderule}{\textcolor{black!35}{\hfil\rule{.98\linewidth}{0.2pt}}}

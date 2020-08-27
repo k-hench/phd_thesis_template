@@ -8,19 +8,19 @@
 
 \begin{document}
 \thispagestyle{empty}
+\AddToShipoutPicture*{\PagePic{images/title.jpg}}
 %\AddToShipoutPicture*{\FrontPic}
 \newgeometry{top=2.5cm, bottom=2cm, inner=2.25cm, outer=1.75cm}
 %\newgeometry{top=2.5cm, bottom=2cm, inner=2cm, outer=2cm}
 \begin{center}
 \begin{LARGE}
 \vspace*{1.2em}
-\textbf{\thetitle}\\
+{\huge\textbf{\textcolor{clrt1}{\thetitle}}}\\
 \vspace*{.1\paperheight}
 \MYAUTHOR
 \end{LARGE}
 \end{center}
 \vfill
-
 
 \blankpage
 
@@ -69,11 +69,12 @@ Kiel, XX.XX.20XX
 
 \setcounter{chapter}{-1}
 \chapter[Introduction]{\centering Introduction\\}
-\renewcommand{\chaptername}{Chapter~}
-\renewcommand{\headchapter}{\thechapter}
+\renewcommand{\headchapter}{Introduction}
 \input{3_intro.tex}
 
 \newpage
+\renewcommand{\chaptername}{Chapter~}
+\renewcommand{\headchapter}{\thechapter}
 \input{4_0_chapters.tex}
 
 \chapter[Synthesis]{\centering Synthesis\\}
@@ -133,6 +134,11 @@ Mir wurde kein akadamischer Grad entzogen\\\vspace{.07\paperheight}
 
 %\blankpage
 \newpage
+\AddToShipoutPicture*{\PagePic{images/back.jpg}}
 \thispagestyle{empty}
-\ \\
+\textcolor{white!90}{\hrule}\vspace*{1em}
+\hfil\includegraphics[width = 8em]{images/logo.pdf}\\
+\vfill
+
+\textcolor{white!90}{\hrule}\vspace*{.15em}
 \end{document} 
