@@ -17,13 +17,13 @@ A small summary of Edgar Anderson's Iris Data as implemented in R.}
 
 \section{Introduction}
 
-So, as far as citations go, I use a modular command system: This is based on the basic \LaTeX - citation commands (\textsw{$\backslash cite$}, \textsw{$\backslash citep$} and \textsw{$\backslash citealt$}) and two single-letter suffixes (i/a/b/c/d/z and t/m). The first letter indicates the current section (Intro: I, Chapter 1:a, 2:b, Synthesis:z), while the last letter indicates whether this is the self-citation from the Chapter title page (t) or a citation within the manuscript (m).
-Form these pieces, the actual commands can be puzzled together, with the actual commands looking something like \textsw{$\backslash citepcm\{\}$}.
+So, as far as citations go, I use a modular command system: This is based on the basic \LaTeX - citation commands (\texttt{$\backslash$cite}, \texttt{$\backslash$citep} and \texttt{$\backslash$citealt}) and two single-letter suffixes (\texttt{i}/\texttt{a}/\texttt{b}/\texttt{c}/\texttt{d}/\texttt{z} and \texttt{t}/\texttt{m}). The first letter indicates the current section (Intro: \texttt{i}, Chapter 1:\texttt{a}, 2:\texttt{b}, Synthesis:\texttt{z}), while the last letter indicates whether this is the self-citation from the Chapter title page (\texttt{t}) or a citation within the manuscript (\texttt{m}).
+Form these pieces, the actual commands can be puzzled together, with the actual commands looking something like \texttt{$\backslash$citepcm\{\}}.
 
 So, you might remember that in the first Chapter \citepbm{ref1}, we cited \citebm{Darwin1859} a lot.
 Now in this chapter we are going to look at the data from \citealtbm{Anderson35}.
 We are going to show a summary of this data in a main table (\tabref{tab:c2t1}), while a glimpse of the actual data structure is given in a Supplemental Table (\tabrefS{tab:c2st1}).
-The referencing of the tables happens using the commands \textsw{$\backslash tabref\{\}$} and \textsw{$\backslash tabrefS\{\}$}.
+The referencing of the tables happens using the commands \texttt{$\backslash$tabref\{\}} and \texttt{$\backslash$tabrefS\{\}}.
 
 \section{First Section}
 \lipsum[7-8]

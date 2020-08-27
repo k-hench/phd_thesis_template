@@ -12,6 +12,14 @@
 
 \section{First Section}
 
+\textbf{Inline Quotes:} By the way, we can also quote \textit{in line} using the environment \texttt{$\backslash$displayquote}:
+
+\begin{displayquote}
+\textit{
+I look at the term species, as one arbitrarily given for the sake of convenience to a set of individuals closely resembling each other [...].}
+\hfill{\citepim{Darwin1859}}
+\end{displayquote}
+
 \textbf{Adding Figures:}
 Figures are added to the text using the \texttt{figure*} environment in combination with the \texttt{$\backslash$includegraphics} command (s. example in source code).
 You can also use the \texttt{$\backslash$label} command to add a tag to the figure which you can use to refernce the figure in your text.
@@ -40,7 +48,7 @@ I usually do this in the following manner:
 \end{tcolorbox}
 
 Also, note the difference between normal mode (\texttt{figure*}) and landscape mode (\texttt{figure}):
-All \texttt{Float}-environments (\texttt{figure}, \texttt{supplFigure}, \texttt{table} and \texttt{supplTable}) that you want to place within a \texttt{multicols} text, need to have an asterisk at the appended.
+All \texttt{Float}-environments (\texttt{figure}, \texttt{supplFigure}, \texttt{table} and \texttt{supplTable}) that you want to place within a \texttt{multicols} text, need to have an  appended asterisk.
 
 To embed a landscape figure within the text, the overall approach is:
 
@@ -58,16 +66,8 @@ To embed a landscape figure within the text, the overall approach is:
 \end{lstlisting}
 \end{tcolorbox}
 
-Unfortunately, breaking the text around landscape figures needs to be done manually - finding the best break is usually done last because any change in the text afterwards might result in awkward half-empty pages.
-Also, note the \texttt{$\backslash$stopsquarepar} which is used to cause the text-justification to behave as if the the text was not broken (keeping eg. the block-justification intact).
-
-\textbf{Inline Quotes:} By the way, we can also quote \textit{in line} using the environment \texttt{$\backslash$displayquote}:
-
-\begin{displayquote}
-\textit{
-I look at the term species, as one arbitrarily given for the sake of convenience to a set of individuals closely resembling each other [...].}
-\hfill{\citepim{Darwin1859}}
-\end{displayquote}
+Unfortunately, breaking the text around landscape figures needs to be done manually --- finding the best break is usually done last because any change in the text afterwards might result in awkward half-empty pages.
+Also, note the \texttt{$\backslash$stopsquarepar}, which is used to cause the text-justification to behave as if the the text was not broken (keeping eg. the block-justification intact).
 
 \section{Second Section}
 
